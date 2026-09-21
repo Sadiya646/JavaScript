@@ -1,0 +1,27 @@
+/**
+ * Given a sentence, return an object containing the frequency count of each word. Ignore case differences (e.g., treat "The" and "the" as the same word).
+
+Examples
+countWordFrequencies("Hello world, hello!");
+// Expected output:
+// {"hello": 2, "world": 1}
+
+countWordFrequencies("The quick brown fox jumps over the lazy dog.");
+// Expected output:
+// {"the": 2, "quick": 1, "brown": 1, "fox": 1, "jumps": 1, "over": 1, "lazy": 1, "dog": 1}
+ */
+function countWordFrequencies(sentence) {
+    let words = sentence.toLowerCase().match(/[a-z0-9]+/g) || [];
+
+    let result = {};
+
+    for (let word of words) {
+        if (result[word]) {
+            result[word]++;
+        } else {
+            result[word] = 1;
+        }
+    }
+
+    return result;
+}
